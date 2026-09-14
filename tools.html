@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free browser tools and practical utilities."><title>Free Tools — QuickHub</title>
+<link rel="stylesheet" href="/assets/style.css"></head>
+<body>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="/">QuickHub</a><nav><a href="/tools.html">Tools</a><a href="/apps.html">Apps</a><a href="/offers.html">Offers</a></nav></div></header>
+<main class="wrap section">
+<h1>Free Tools</h1><p class="lead">Practical tools that work in a browser. More tools can be added as you validate what your visitors actually use.</p>
+<div class="grid two">
+  <article class="card"><h2>Text Counter</h2><textarea id="counterInput" rows="6" placeholder="Paste or type text..."></textarea><p><b id="wordCount">0</b> words · <b id="charCount">0</b> characters</p></article>
+  <article class="card"><h2>Case Converter</h2><textarea id="caseInput" rows="6" placeholder="Type text..."></textarea><div class="actions"><button class="btn small" onclick="document.getElementById('caseInput').value=document.getElementById('caseInput').value.toUpperCase()">UPPERCASE</button><button class="btn small" onclick="document.getElementById('caseInput').value=document.getElementById('caseInput').value.toLowerCase()">lowercase</button></div></article>
+  <article class="card"><h2>Quick Notes</h2><textarea id="notes" rows="6" placeholder="Your notes stay in this browser."></textarea><button class="btn small" onclick="localStorage.setItem('qh_notes',document.getElementById('notes').value);alert('Saved on this device.')">Save locally</button></article>
+  <article class="card"><h2>Share this page</h2><p>Useful tools are naturally shareable. Use your browser's share button or copy the page URL.</p><button class="btn small" onclick="navigator.share ? navigator.share({title:document.title,url:location.href}) : navigator.clipboard.writeText(location.href).then(()=>alert('Link copied.'))">Share</button></article>
+</div>
+</main>
+<footer><div class="wrap footer"><span>© 2026 QuickHub</span><span><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/contact.html">Contact</a></span></div></footer>
+<script>
+const i=document.getElementById('counterInput');
+i.addEventListener('input',()=>{const t=i.value.trim();document.getElementById('wordCount').textContent=t?t.split(/\s+/).length:0;document.getElementById('charCount').textContent=i.value.length});
+document.getElementById('notes').value=localStorage.getItem('qh_notes')||'';
+</script>
+</body></html>
